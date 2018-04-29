@@ -12,8 +12,7 @@ def chinese_remainder_theorem(moduli, residues):
     remainder residue[j].
     """
     if (len(moduli) != len(residues)):
-    raise ValueError, "expected len(moduli) ==
-    len(residues)"
+    	raise ValueError, "expected len(moduli) == len(residues)"
     M = prod(moduli);
     x = 0;
     for j in xrange(len(moduli)):
@@ -22,7 +21,6 @@ def chinese_remainder_theorem(moduli, residues):
         (Mj_Mpr_gcd, Mpr_inv, Mj_inv) = xgcd(Mpr, Mj)
         Mpr_inv = Mpr_inv
         if (Mj_Mpr_gcd != 1):
-        raise ValueError, "Expected all moduli are
-        coprime."
+        	raise ValueError, "Expected all moduli are coprime."
         x += residues[j]*Mpr*Mpr_inv;
     return x;
